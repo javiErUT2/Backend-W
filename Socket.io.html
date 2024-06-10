@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket.IO Client</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Socket.IO Client</h1>
+    <script>
+        const socket = io('http://localhost:3000');
+        socket.on('connect', () => {
+            console.log('Conectado al servidor');
+            socket.emit('mensaje', { text: 'Hola desde el cliente' });
+        });
+        socket.on('disconnect', () => {
+            console.log('Desconectado del servidor');
+        });
+    </script>
+</body>
+</html>
